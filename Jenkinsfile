@@ -10,7 +10,9 @@ pipeline {
                     withKubeConfig([credentialsId: 'dokube']) {
                      sh 'helm repo add my-repo https://charts.bitnami.com/bitnami'
                      sh 'helm repo update'
-                     sh 'helm upgrade --install my-release my-repo/nginx'   
+                     sh 'helm upgrade --install my-release my-repo/nginx'  
+                     sh 'helm uninstall my-repo'   
+                        
                     //sh 'kubectl delete -f my-kubernetes-directory'
                 
                 //sh 'mkdir -p  ~/.kube/'
