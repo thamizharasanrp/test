@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage(getpods) {
             steps {
-                scripts{
+                script {
                     withKubeConfig([credentialsId: 'dokube']) {
                     //sh 'kubectl apply -f my-kubernetes-directory'
                 
