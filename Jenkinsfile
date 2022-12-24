@@ -6,11 +6,14 @@ pipeline {
     stages {
         stage(getpods) {
             steps {
-                sh 'kubectl --kubeconfig="${CREDS}" get pods'
-                sh 'kubectl --kubeconfig="${CREDS}" delete -f deployment.yml'
-                sh 'kubectl --kubeconfig="${CREDS}" delete -f service.yml'
+                
+                sh 'mkdir -p  ./kube/'
+                sh 'cat CREDS > ./kube/config'
+                #sh 'kubectl --kubeconfig="${CREDS}" get pods'
+                sh 'kubectl apply -f deployment.yml'
+                #sh 'kubectl --kubeconfig="${CREDS}" delete -f service.yml'
                 sleep 15
-                sh 'kubectl --kubeconfig="${CREDS}" get pods'
+                sh 'kubectl get pods'
             }
         }
     }  
