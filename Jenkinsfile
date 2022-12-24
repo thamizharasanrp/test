@@ -9,7 +9,7 @@ pipeline {
                 
                 sh 'mkdir -p  ~/.kube/'
                 sh 'cat "${CREDS}" > ~/.kube/config'
-                sh 'kubectl apply -f deployment.yml'
+                sh 'kubectl delete -f deployment.yml'
                 sleep 15
                 sh 'kubectl get pods'
             }
