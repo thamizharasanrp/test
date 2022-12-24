@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     withKubeConfig([credentialsId: 'dokube']) {
-                    //sh 'kubectl apply -f my-kubernetes-directory'
+                    //sh 'kubectl delete -f my-kubernetes-directory'
                 
                 //sh 'mkdir -p  ~/.kube/'
                 //sh 'cat "${CREDS}" > ~/.kube/config'
