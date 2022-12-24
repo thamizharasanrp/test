@@ -8,7 +8,7 @@ pipeline {
             steps {
                 
                 sh 'mkdir -p  ~/.kube/'
-                sh 'cat CREDS > ~/.kube/config'
+                sh 'cat "${CREDS}" > ~/.kube/config'
                 sh 'kubectl apply -f deployment.yml'
                 sleep 15
                 sh 'kubectl get pods'
